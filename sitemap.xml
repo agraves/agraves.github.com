@@ -2,14 +2,18 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://lolsrsly.com/blog/2012/01/31/first-post/</loc>
-        <lastmod>2012-01-31T01:41:51-05:00</lastmod>
+        <lastmod>2012-01-31T01:50:28-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lolsrsly.com/blog/2012/01/31/debugging-redirects/</loc>
+        <lastmod>2012-01-31T02:09:20-05:00</lastmod>
     </url>
     <url>
         <loc>http://lolsrsly.com/blog/archives/</loc>
-        <lastmod>2012-01-31T01:41:51-05:00</lastmod>
+        <lastmod>2012-01-31T02:09:20-05:00</lastmod>
     </url>
     <url>
         <loc>http://lolsrsly.com/</loc>
-        <lastmod>2012-01-31T01:41:51-05:00</lastmod>
+        <lastmod>2012-01-31T02:09:20-05:00</lastmod>
     </url>
 </urlset>

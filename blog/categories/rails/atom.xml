@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | LOLSRSLY]]></title>
+  <link href="http://lolsrsly.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://lolsrsly.com/"/>
+  <updated>2012-01-31T02:11:55-05:00</updated>
+  <id>http://lolsrsly.com/</id>
+  <author>
+    <name><![CDATA[Aaron Graves]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Debugging redirects]]></title>
+    <link href="http://lolsrsly.com/blog/2012/01/31/debugging-redirects/"/>
+    <updated>2012-01-31T01:54:00-05:00</updated>
+    <id>http://lolsrsly.com/blog/2012/01/31/debugging-redirects</id>
+    <content type="html"><![CDATA[<p>Ever had a controller action issuing a redirect, but had no idea why?  Instead of disabling your gems and before_filters one by one, try this:</p>
+
+<p>``` ruby app/controllers/application_controller.rb</p>
+
+<pre><code>unless Rails.env.production?
+  def redirect_to(options = {}, response_status = {})
+    ::Rails.logger.error("Redirected by #{caller(1).first rescue "unknown"}")
+    super(options, response_status)
+  end
+end
+</code></pre>
+
+<p>```</p>
+
+<p>Original credit to to <a href="http://jkfill.com/2011/05/13/log-which-line-called-redirect_to/">this blog post</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

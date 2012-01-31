@@ -9,8 +9,7 @@
   <meta name="author" content="Aaron Graves">
 
   
-  <meta name="description" content="Hello world
-">
+  <meta name="description" content="Ever had a controller action issuing a redirect, but had no idea why? Instead of disabling your gems and before_filters one by one, try this: app/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +70,59 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/01/31/debugging-redirects/">Debugging Redirects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-31T01:54:00-05:00" pubdate data-updated="true">Jan 31<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ever had a controller action issuing a redirect, but had no idea why?  Instead of disabling your gems and before_filters one by one, try this:</p>
+
+<figure class='code'><figcaption><span>app/controllers/application_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">unless</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">production?</span>
+</span><span class='line'>      <span class="k">def</span> <span class="nf">redirect_to</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">response_status</span> <span class="o">=</span> <span class="p">{})</span>
+</span><span class='line'>        <span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Redirected by </span><span class="si">#{</span><span class="nb">caller</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">first</span> <span class="k">rescue</span> <span class="s2">&quot;unknown&quot;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">super</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">response_status</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Original credit to to <a href="http://jkfill.com/2011/05/13/log-which-line-called-redirect_to/">this blog post</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/01/31/first-post/">First Post</a></h1>
     
     
@@ -113,6 +165,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/31/debugging-redirects/">Debugging redirects</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/01/31/first-post/">First Post</a>

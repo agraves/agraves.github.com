@@ -4,7 +4,7 @@
   <title><![CDATA[LOLSRSLY]]></title>
   <link href="http://lolsrsly.com/atom.xml" rel="self"/>
   <link href="http://lolsrsly.com/"/>
-  <updated>2012-01-31T01:42:56-05:00</updated>
+  <updated>2012-01-31T02:11:55-05:00</updated>
   <id>http://lolsrsly.com/</id>
   <author>
     <name><![CDATA[Aaron Graves]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Debugging redirects]]></title>
+    <link href="http://lolsrsly.com/blog/2012/01/31/debugging-redirects/"/>
+    <updated>2012-01-31T01:54:00-05:00</updated>
+    <id>http://lolsrsly.com/blog/2012/01/31/debugging-redirects</id>
+    <content type="html"><![CDATA[<p>Ever had a controller action issuing a redirect, but had no idea why?  Instead of disabling your gems and before_filters one by one, try this:</p>
+
+<figure class='code'><figcaption><span>app/controllers/application_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">unless</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">production?</span>
+</span><span class='line'>      <span class="k">def</span> <span class="nf">redirect_to</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">response_status</span> <span class="o">=</span> <span class="p">{})</span>
+</span><span class='line'>        <span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Redirected by </span><span class="si">#{</span><span class="nb">caller</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">first</span> <span class="k">rescue</span> <span class="s2">&quot;unknown&quot;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">super</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">response_status</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Original credit to to <a href="http://jkfill.com/2011/05/13/log-which-line-called-redirect_to/">this blog post</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First Post]]></title>
