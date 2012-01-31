@@ -4,7 +4,7 @@
   <title><![CDATA[LOLSRSLY]]></title>
   <link href="http://lolsrsly.com/atom.xml" rel="self"/>
   <link href="http://lolsrsly.com/"/>
-  <updated>2012-01-31T01:32:42-05:00</updated>
+  <updated>2012-01-31T01:42:56-05:00</updated>
   <id>http://lolsrsly.com/</id>
   <author>
     <name><![CDATA[Aaron Graves]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Post]]></title>
+    <link href="http://lolsrsly.com/blog/2012/01/31/first-post/"/>
+    <updated>2012-01-31T01:41:00-05:00</updated>
+    <id>http://lolsrsly.com/blog/2012/01/31/first-post</id>
+    <content type="html"><![CDATA[<p>Hello world</p>
+]]></content>
+  </entry>
   
 </feed>
